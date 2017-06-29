@@ -8,6 +8,13 @@
 
 /* Begin PBXBuildFile section */
 		B7A5002D1F057EC500D2D0BA /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7A5002C1F057EC500D2D0BA /* main.swift */; };
+		B7A500351F057F6A00D2D0BA /* GameManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7A500341F057F6A00D2D0BA /* GameManager.swift */; };
+		B7A500371F057FFD00D2D0BA /* ScreenEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7A500361F057FFD00D2D0BA /* ScreenEntity.swift */; };
+		B7A5003B1F05823400D2D0BA /* Floor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7A5003A1F05823400D2D0BA /* Floor.swift */; };
+		B7A5003D1F05834B00D2D0BA /* Wall.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7A5003C1F05834B00D2D0BA /* Wall.swift */; };
+		B7A5003F1F0583AF00D2D0BA /* Room.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7A5003E1F0583AF00D2D0BA /* Room.swift */; };
+		B7A500421F05893100D2D0BA /* DungeonObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7A500411F05893100D2D0BA /* DungeonObject.swift */; };
+		B7A500451F059AF100D2D0BA /* libncurses.5.4.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = B7A500441F059AF100D2D0BA /* libncurses.5.4.tbd */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -25,6 +32,13 @@
 /* Begin PBXFileReference section */
 		B7A500291F057EC500D2D0BA /* nethack_swift */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = nethack_swift; sourceTree = BUILT_PRODUCTS_DIR; };
 		B7A5002C1F057EC500D2D0BA /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
+		B7A500341F057F6A00D2D0BA /* GameManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameManager.swift; sourceTree = "<group>"; };
+		B7A500361F057FFD00D2D0BA /* ScreenEntity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScreenEntity.swift; sourceTree = "<group>"; };
+		B7A5003A1F05823400D2D0BA /* Floor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Floor.swift; sourceTree = "<group>"; };
+		B7A5003C1F05834B00D2D0BA /* Wall.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Wall.swift; sourceTree = "<group>"; };
+		B7A5003E1F0583AF00D2D0BA /* Room.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Room.swift; sourceTree = "<group>"; };
+		B7A500411F05893100D2D0BA /* DungeonObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DungeonObject.swift; sourceTree = "<group>"; };
+		B7A500441F059AF100D2D0BA /* libncurses.5.4.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libncurses.5.4.tbd; path = usr/lib/libncurses.5.4.tbd; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -32,6 +46,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B7A500451F059AF100D2D0BA /* libncurses.5.4.tbd in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -43,6 +58,7 @@
 			children = (
 				B7A5002B1F057EC500D2D0BA /* nethack_swift */,
 				B7A5002A1F057EC500D2D0BA /* Products */,
+				B7A500431F059AF100D2D0BA /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -57,9 +73,39 @@
 		B7A5002B1F057EC500D2D0BA /* nethack_swift */ = {
 			isa = PBXGroup;
 			children = (
+				B7A500381F0581F800D2D0BA /* Dungeon */,
 				B7A5002C1F057EC500D2D0BA /* main.swift */,
+				B7A500341F057F6A00D2D0BA /* GameManager.swift */,
+				B7A500361F057FFD00D2D0BA /* ScreenEntity.swift */,
 			);
 			path = nethack_swift;
+			sourceTree = "<group>";
+		};
+		B7A500381F0581F800D2D0BA /* Dungeon */ = {
+			isa = PBXGroup;
+			children = (
+				B7A500401F05841100D2D0BA /* Entities */,
+				B7A5003E1F0583AF00D2D0BA /* Room.swift */,
+				B7A500411F05893100D2D0BA /* DungeonObject.swift */,
+			);
+			name = Dungeon;
+			sourceTree = "<group>";
+		};
+		B7A500401F05841100D2D0BA /* Entities */ = {
+			isa = PBXGroup;
+			children = (
+				B7A5003A1F05823400D2D0BA /* Floor.swift */,
+				B7A5003C1F05834B00D2D0BA /* Wall.swift */,
+			);
+			name = Entities;
+			sourceTree = "<group>";
+		};
+		B7A500431F059AF100D2D0BA /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				B7A500441F059AF100D2D0BA /* libncurses.5.4.tbd */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -120,7 +166,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B7A5003B1F05823400D2D0BA /* Floor.swift in Sources */,
+				B7A500371F057FFD00D2D0BA /* ScreenEntity.swift in Sources */,
+				B7A5003F1F0583AF00D2D0BA /* Room.swift in Sources */,
+				B7A500421F05893100D2D0BA /* DungeonObject.swift in Sources */,
+				B7A5003D1F05834B00D2D0BA /* Wall.swift in Sources */,
 				B7A5002D1F057EC500D2D0BA /* main.swift in Sources */,
+				B7A500351F057F6A00D2D0BA /* GameManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
