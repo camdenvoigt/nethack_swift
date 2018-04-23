@@ -7,16 +7,17 @@
 //
 
 import Foundation
+import CNCurses
 
-struct Room: DungeonObject {
-    var entities: [ScreenEntity] = []
+struct Room: DungeonEntity {
+    var entities: [WindowRepresentable] = []
     var dimensions: [String : UInt] = ["row": 0, "col": 0, "height": 5, "width": 5]
     
     init() {
         self = Room.createRoom()
     }
     
-    private init(entities: [ScreenEntity], row: UInt, col: UInt, height: UInt, width: UInt) {
+    private init(entities: [WindowRepresentable], row: UInt, col: UInt, height: UInt, width: UInt) {
         dimensions["row"] = row
         dimensions["col"] = col
         dimensions["height"] = height
@@ -29,24 +30,25 @@ struct Room: DungeonObject {
         let row = arc4random_uniform(81) + 1
         let col = arc4random_uniform(19) + 1
         
-        let entities = Room.createEntities(row: row, col: col, height: height, width: width)
+        let entities = Room.createEntities(row: Int(row), col: Int(col), height: Int(height), width: Int(width))
         
         return Room(entities: entities, row: UInt(row), col: UInt(col), height: UInt(height), width: UInt(width))
     }
     
-    private static func createEntities(row: UInt32, col: UInt32, height: UInt32, width: UInt32) -> [ScreenEntity] {
-        var entities: [ScreenEntity] = []
+    private static func createEntities(row: Int, col: Int, height: Int, width: Int) -> [WindowRepresentable] {
+        var entities: [WindowRepresentable] = []
         for i in 0..<(height - 1) {
             for j in 0..<(width - 1) {
                 if i == 0 || i == (height - 1) {
-                    entities.append(HorizaontalWall(row: UInt(i + row), col: UInt(j + col)))
+                    entities.append(HorizaontalWall(row: i + row, col: j + col))
                 } else if j == 0 || j == (width - 1) {
-                    entities.append(VerticalWall(row: UInt(i + row), col: UInt(j + col)))
+                    entities.append(VerticalWall(row: i + row, col: j + col))
                 } else {
-                    entities.append(Floor(row: UInt(i + row), col: UInt(j + col)))
+                    entities.append(Floor(row: i + row, col: j + col))
                 }
             }
         }
+        
         return entities
     }
 }

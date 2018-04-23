@@ -16,17 +16,11 @@ class GameManager {
     init() {}
     
     func start() {
-        initscr()                   // Init window. Must be first
-        cbreak()
-        noecho()                    // Don't echo user input
-        nonl()                      // Disable newline mode
-        intrflush(stdscr, true)     // Prevent flush
-        keypad(stdscr, true)        // Enable function and arrow keys
-        curs_set(1)                 // Set cursor to invisible
+        setup()
+        
+        // Print starting information
         addstr("Press 'q' to Quit.")
-        
         move(5, 0)
-        
         addstr("Hello")
         move(5, 5)
         addstr(" World!")
@@ -38,13 +32,22 @@ class GameManager {
         while true {
             
             switch getch() {
-                
-            case Int32(UnicodeScalar("q").value):
-                endwin()
-                exit(EX_OK)
-            default: true
+                case Int32(UnicodeScalar("q").value):
+                    endwin()
+                    exit(EX_OK)
+                default: true
             }
             
         }
+    }
+    
+    private func setup() {
+        initscr()                   // Init window. Must be first
+        cbreak()
+        noecho()                    // Don't echo user input
+        nonl()                      // Disable newline mode
+        intrflush(stdscr, true)     // Prevent flush
+        keypad(stdscr, true)        // Enable function and arrow keys
+        curs_set(1)                 // Set cursor to invisible
     }
 }

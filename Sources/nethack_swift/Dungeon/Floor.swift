@@ -8,12 +8,12 @@
 
 import Foundation
 
-struct Floor: ScreenEntity {
+struct Floor: WindowRepresentable {
     var name: String = "Floor"
-    var representation: Character = "#"
-    var position: [String : UInt] = ["row": 0, "col": 0]
+    var symbol: String = "#"
+    var position: [String : Int] = ["row": 0, "col": 0]
     
-    init(row: UInt, col: UInt) {
+    init(row: Int, col: Int) {
         position["row"] = row
         position["col"] = col
     }
