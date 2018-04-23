@@ -9,7 +9,7 @@
 //
 
 import Foundation
-import Darwin.ncurses
+import CNCurses
 
 class GameManager {
     
