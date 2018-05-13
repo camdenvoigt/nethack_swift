@@ -9,45 +9,60 @@
 //
 
 import Foundation
-import CNCurses
+
+enum GameState {
+    case gameStart
+    case inGame
+    case gameEnd
+}
 
 class GameManager {
     
-    init() {}
+    //TODO: maybe make GameManager a protocol for testing purposes
     
+    private var renderer: Renderer
+    private var inputManager: InputManager
+    var gameState: GameState
+    
+    init() {
+        self.gameState = .gameStart
+        self.renderer = Renderer()
+        self.inputManager = InputManager()
+        self.renderer.setup()
+        self.inputManager.gameManager = self
+    }
+    
+    // Starts the Game
     func start() {
-        setup()
-        
-        // Print starting information
-        addstr("Press 'q' to Quit.")
-        move(5, 0)
-        addstr("Hello")
-        move(5, 5)
-        addstr(" World!")
-        refresh()
-        
-        
+        self.gameState = .gameStart
+        // Draw the start Screen
+        self.renderer.drawStartScreen()
         // Wait for user input
-        // Exit on 'q'
-        while true {
-            
-            switch getch() {
-                case Int32(UnicodeScalar("q").value):
-                    endwin()
-                    exit(EX_OK)
-                default: true
-            }
-            
+        self.inputManager.runInputLoop()
+    }
+    
+    // Handle Events that happen in the game (Mostly user input events)
+    func handleEvent(event: Events) {
+        switch(event) {
+        case .startGame:
+            self.gameState = .gameStart
+            self.renderer.drawStartScreen()
+        case .endGame:
+            self.gameState = .gameEnd
+            renderer.drawQuitScreen()
+        case .moveLeft:
+            //TODO
+            break
+        case .moveUp:
+            //TODO
+            break
+        case .moveRight:
+            //TODO
+            break
+        case .moveDown:
+            //TODO
+            break
         }
     }
-    
-    private func setup() {
-        initscr()                   // Init window. Must be first
-        cbreak()
-        noecho()                    // Don't echo user input
-        nonl()                      // Disable newline mode
-        intrflush(stdscr, true)     // Prevent flush
-        keypad(stdscr, true)        // Enable function and arrow keys
-        curs_set(1)                 // Set cursor to invisible
-    }
+
 }

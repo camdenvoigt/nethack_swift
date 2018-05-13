@@ -21,6 +21,9 @@
 /* End PBXAggregateTarget section */
 
 /* Begin PBXBuildFile section */
+		5857587F20A7B3E000F29771 /* InputManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5857587E20A7B3E000F29771 /* InputManager.swift */; };
+		5857588120A7B4D400F29771 /* Renderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5857588020A7B4D400F29771 /* Renderer.swift */; };
+		5857588320A7BB7B00F29771 /* Events.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5857588220A7BB7B00F29771 /* Events.swift */; };
 		OBJ_29 /* DungeonEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_9 /* DungeonEntity.swift */; };
 		OBJ_30 /* Floor.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_10 /* Floor.swift */; };
 		OBJ_31 /* GameManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_11 /* GameManager.swift */; };
@@ -51,6 +54,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		5857587E20A7B3E000F29771 /* InputManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputManager.swift; sourceTree = "<group>"; };
+		5857588020A7B4D400F29771 /* Renderer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Renderer.swift; sourceTree = "<group>"; };
+		5857588220A7BB7B00F29771 /* Events.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Events.swift; sourceTree = "<group>"; };
 		OBJ_10 /* Floor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Floor.swift; sourceTree = "<group>"; };
 		OBJ_11 /* GameManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameManager.swift; sourceTree = "<group>"; };
 		OBJ_12 /* Room.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Room.swift; sourceTree = "<group>"; };
@@ -83,10 +89,28 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5857588420A7C30900F29771 /* InputManager */ = {
+			isa = PBXGroup;
+			children = (
+				5857587E20A7B3E000F29771 /* InputManager.swift */,
+				5857588220A7BB7B00F29771 /* Events.swift */,
+			);
+			path = InputManager;
+			sourceTree = "<group>";
+		};
+		5857588520A7C32100F29771 /* Renderer */ = {
+			isa = PBXGroup;
+			children = (
+				OBJ_13 /* WindowRepresentable.swift */,
+				5857588020A7B4D400F29771 /* Renderer.swift */,
+				OBJ_9 /* DungeonEntity.swift */,
+			);
+			path = Renderer;
+			sourceTree = "<group>";
+		};
 		58614BFE208E761E00866A7E /* Dungeon */ = {
 			isa = PBXGroup;
 			children = (
-				OBJ_9 /* DungeonEntity.swift */,
 				OBJ_12 /* Room.swift */,
 				OBJ_10 /* Floor.swift */,
 				OBJ_14 /* Wall.swift */,
@@ -128,7 +152,7 @@
 			name = Products;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		OBJ_5 /*  */ = {
+		OBJ_5 = {
 			isa = PBXGroup;
 			children = (
 				OBJ_6 /* Package.swift */,
@@ -137,7 +161,6 @@
 				OBJ_20 /* Dependencies */,
 				OBJ_21 /* Products */,
 			);
-			name = "";
 			sourceTree = "<group>";
 		};
 		OBJ_7 /* Sources */ = {
@@ -151,10 +174,11 @@
 		OBJ_8 /* nethack_swift */ = {
 			isa = PBXGroup;
 			children = (
-				58614BFE208E761E00866A7E /* Dungeon */,
-				OBJ_13 /* WindowRepresentable.swift */,
-				OBJ_11 /* GameManager.swift */,
 				OBJ_15 /* main.swift */,
+				OBJ_11 /* GameManager.swift */,
+				5857588420A7C30900F29771 /* InputManager */,
+				5857588520A7C32100F29771 /* Renderer */,
+				58614BFE208E761E00866A7E /* Dungeon */,
 			);
 			name = nethack_swift;
 			path = Sources/nethack_swift;
@@ -225,7 +249,7 @@
 			knownRegions = (
 				en,
 			);
-			mainGroup = OBJ_5 /*  */;
+			mainGroup = OBJ_5;
 			productRefGroup = OBJ_21 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -243,12 +267,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 0;
 			files = (
+				5857587F20A7B3E000F29771 /* InputManager.swift in Sources */,
 				OBJ_29 /* DungeonEntity.swift in Sources */,
 				OBJ_30 /* Floor.swift in Sources */,
 				OBJ_31 /* GameManager.swift in Sources */,
+				5857588320A7BB7B00F29771 /* Events.swift in Sources */,
 				OBJ_32 /* Room.swift in Sources */,
 				OBJ_33 /* WindowRepresentable.swift in Sources */,
 				OBJ_34 /* Wall.swift in Sources */,
+				5857588120A7B4D400F29771 /* Renderer.swift in Sources */,
 				OBJ_35 /* main.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
